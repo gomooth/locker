@@ -1,10 +1,14 @@
 package redislock
 
-import (
-	"time"
-)
+import "time"
 
 const (
-	// 默认超时时间，5分钟有效
-	defaultTimeout = 5 * 60 * time.Second
+	defaultTimeout          = 30 * time.Second
+	defaultRetryCount       = 0
+	defaultRetryInterval    = 200 * time.Millisecond
+	defaultWatchDog         = true
+	defaultMaxRenewFailures = 3
+	defaultKeyPrefix        = "lock:"
+	defaultRenewTimeout     = 0 // 0 表示使用 timeout/2
+	defaultRecoveryProbe    = true
 )
